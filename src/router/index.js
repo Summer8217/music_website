@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Layout from '../views/Layout'
+import Home from '../components/Home'
+import Login from '../views/Login'
+import KeyinUser from '../components/KeyinUser'
 
 
 
@@ -11,14 +14,27 @@ const routes = [
     path: '/',
     name: 'Layout',
     component: Layout,
-    //redirect:{name:'HelloWorld'},
-    /*children:[
+    redirect:{name:'Home'},
+    children:[
       {
         path: '/',
-        name: 'HelloWorld',
-        component: HelloWorld
-      }
-    ]*/
+        name: 'Home',
+        component: Home
+      },
+      {
+        path:'/login',
+        component:Login,
+        name:'Login',
+        redirect:{name:'KeyinUser'},
+        children:[
+          {
+            path:'keyinUser',
+            component:KeyinUser,
+            name:'KeyinUser'
+          },
+        ]
+      },
+    ]
   },
   
 ]

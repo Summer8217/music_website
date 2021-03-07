@@ -3,5 +3,12 @@ import Vuetify from 'vuetify/lib/framework';
 
 Vue.use(Vuetify);
 
-export default new Vuetify({
-});
+const opts = {theme: {
+    themes: {
+      light: {
+        primary: '#2D3753',
+      }
+    },
+  },};
+
+export default new Vuetify(opts)
